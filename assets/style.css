@@ -1,0 +1,117 @@
+/* Estilo público — misma paleta que el sistema interno (DNBC) */
+:root {
+  --marino:#02192f; --primario:#0a4a9e; --enlace:#0a4a9e; --amarillo:#f4d13f; --rojo:#c91129;
+  --fondo:#eef2f7; --tarjeta:#ffffff; --texto:#10202f; --suave:#586b80; --borde:#d3dce7;
+  --ok:#1b7a49; --aviso:#b36b00;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fondo:#010f1d; --tarjeta:#0a2038; --texto:#eaf2fb; --suave:#9db3cc; --borde:#1c3a5e;
+    --primario:#0f78c8; --enlace:#5fb8ff; --rojo:#e8334b; --ok:#3fb27a; --aviso:#e0a030; }
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font:1.05rem/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:var(--fondo); color:var(--texto); }
+a { color:var(--enlace); }
+img { max-width:100%; }
+.wrap { max-width:70rem; margin:0 auto; padding:0 1rem; }
+
+/* Barra de emergencia */
+.sos { background:var(--rojo); color:#fff; font-weight:600; font-size:.95rem; }
+.sos .wrap { display:flex; flex-wrap:wrap; gap:.4rem 1.2rem; justify-content:center; align-items:center; padding:.45rem 1rem; }
+.sos a { color:#fff; text-decoration:none; white-space:nowrap; }
+.sos a:hover { text-decoration:underline; }
+
+/* Encabezado */
+header.barra { background:var(--marino); color:#fff; position:sticky; top:0; z-index:50; }
+header.barra::after { content:""; position:absolute; left:0; right:0; bottom:0; height:5px;
+  background:linear-gradient(90deg,#f4d13f 0 50%,#003a8a 50% 75%,#c91129 75%); }
+header.barra .wrap { display:flex; align-items:center; gap:1rem; padding:.55rem 1rem .85rem; }
+.marca { display:flex; align-items:center; gap:.7rem; margin-right:auto; color:#fff; text-decoration:none; font-weight:700; line-height:1.15; }
+.marca img { height:3.2rem; width:auto; }
+.marca small { display:block; font-weight:500; color:#c9d8ea; font-size:.78rem; }
+nav.menu { display:flex; gap:.2rem 1rem; flex-wrap:wrap; }
+nav.menu a { color:#fff; text-decoration:none; font-weight:600; font-size:.95rem; padding:.3rem 0; border-bottom:3px solid transparent; }
+nav.menu a:hover, nav.menu a.activo { border-bottom-color:var(--amarillo); }
+.burger { display:none; background:transparent; border:1px solid #ffffff88; color:#fff; border-radius:.45rem; padding:.4rem .7rem; font-size:1.1rem; cursor:pointer; }
+@media (max-width:900px) {
+  .burger { display:block; }
+  nav.menu { display:none; position:absolute; left:0; right:0; top:100%; background:var(--marino); flex-direction:column; padding:.5rem 1rem 1.2rem; gap:.2rem; }
+  nav.menu.abierto { display:flex; }
+  nav.menu a { padding:.6rem 0; border-bottom:1px solid #ffffff22; }
+}
+
+/* Portada */
+.hero { background:radial-gradient(ellipse at 20% 0%, #0b3a6b 0%, var(--marino) 60%); color:#fff; padding:3rem 0 3.5rem; position:relative; overflow:hidden; }
+.hero::before { content:""; position:absolute; right:-6rem; top:-6rem; width:26rem; height:26rem; background:conic-gradient(from 0deg,#c9112922,#f4d13f18,#c9112922,#003a8a30,#c9112922); border-radius:50%; filter:blur(10px); }
+.hero .wrap { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; position:relative; }
+.hero h1 { font-size:clamp(1.9rem,5vw,3rem); line-height:1.1; margin:.2rem 0 .8rem; }
+.hero p { font-size:1.15rem; color:#d6e3f2; max-width:38rem; margin:0 0 1.4rem; }
+.lema { display:inline-block; letter-spacing:.18em; font-size:.8rem; font-weight:700; color:var(--amarillo); text-transform:uppercase; }
+.hero img.escudo { height:14rem; filter:drop-shadow(0 8px 24px #0009); }
+@media (max-width:700px) { .hero .wrap { grid-template-columns:1fr; text-align:center; } .hero img.escudo { height:9rem; margin:0 auto; order:-1; } .hero p { margin-inline:auto; } .acciones { justify-content:center; } }
+.acciones { display:flex; flex-wrap:wrap; gap:.7rem; }
+
+/* Botones */
+.btn { display:inline-block; background:var(--primario); color:#fff; border:0; border-radius:.6rem; padding:.75rem 1.2rem; font:inherit; font-weight:700; text-decoration:none; cursor:pointer; }
+.btn:hover { filter:brightness(1.1); }
+.btn.rojo { background:var(--rojo); } .btn.amarillo { background:var(--amarillo); color:#1b1b1b; }
+.btn.verde { background:#1d9b57; } .btn.sec { background:transparent; color:inherit; border:2px solid currentColor; }
+.btn.mini { padding:.4rem .8rem; font-size:.9rem; }
+
+/* Secciones */
+section.bloque { padding:2.6rem 0; }
+section.bloque.alt { background:var(--tarjeta); border-block:1px solid var(--borde); }
+h1.titulo { font-size:clamp(1.8rem,4vw,2.4rem); margin:0 0 .4rem; }
+h2 { font-size:1.6rem; margin:0 0 .4rem; }
+h2::after { content:""; display:block; width:3.2rem; height:4px; background:var(--amarillo); margin-top:.35rem; border-radius:2px; }
+.sub { color:var(--suave); margin:0 0 1.5rem; max-width:44rem; }
+.page-head { background:var(--marino); color:#fff; padding:2.2rem 0; }
+.page-head .sub { color:#c9d8ea; margin:0; }
+
+/* Tarjetas */
+.rejilla { display:grid; grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)); gap:1rem; }
+.tarjeta { background:var(--tarjeta); border:1px solid var(--borde); border-radius:.8rem; padding:1.1rem 1.2rem; }
+section.alt .tarjeta { background:var(--fondo); }
+.tarjeta h3 { margin:.1rem 0 .4rem; font-size:1.15rem; }
+.tarjeta p { margin:.3rem 0; }
+.tarjeta .ico { font-size:2rem; line-height:1; }
+a.tarjeta { text-decoration:none; color:inherit; display:block; transition:transform .15s, border-color .15s; }
+a.tarjeta:hover { transform:translateY(-3px); border-color:var(--primario); }
+.tarjeta.dest { border-left:6px solid var(--rojo); }
+.etq { display:inline-block; font-size:.75rem; font-weight:700; padding:.1rem .6rem; border-radius:99px; background:var(--borde); color:var(--texto); }
+.etq.rojo { background:var(--rojo); color:#fff; } .etq.aviso { background:var(--aviso); color:#fff; } .etq.ok { background:var(--ok); color:#fff; }
+.suave { color:var(--suave); }
+.nota { border:2px dashed var(--aviso); border-radius:.7rem; padding:.8rem 1rem; background:var(--tarjeta); font-size:.95rem; }
+
+/* Dónde reportar */
+.filtros { display:flex; flex-wrap:wrap; gap:.5rem; margin:0 0 1.2rem; }
+.filtros button { background:var(--tarjeta); color:var(--texto); border:1px solid var(--borde); border-radius:99px; padding:.4rem .9rem; font:inherit; font-size:.92rem; cursor:pointer; }
+.filtros button.on { background:var(--marino); color:#fff; border-color:var(--marino); }
+.caso { display:flex; flex-direction:column; gap:.5rem; }
+.caso .quien { font-weight:700; font-size:1.1rem; }
+.caso .nums { display:flex; flex-wrap:wrap; gap:.4rem; }
+.caso details { font-size:.95rem; color:var(--suave); }
+.caso summary { cursor:pointer; color:var(--enlace); font-weight:600; }
+ol.pasos { padding-left:1.2rem; } ol.pasos li { margin:.3rem 0; }
+
+/* Cifras */
+.cifras { display:grid; grid-template-columns:repeat(auto-fit,minmax(10rem,1fr)); gap:1rem; text-align:center; }
+.cifra { background:var(--tarjeta); border:1px solid var(--borde); border-radius:.8rem; padding:1rem; }
+.cifra b { display:block; font-size:2.2rem; color:var(--rojo); line-height:1.1; }
+.cifra span { color:var(--suave); font-size:.92rem; }
+
+/* Pie */
+footer { background:var(--marino); color:#c9d8ea; padding:2.2rem 0 1.4rem; position:relative; margin-top:2rem; }
+footer::before { content:""; position:absolute; left:0; right:0; top:0; height:5px; background:linear-gradient(90deg,#f4d13f 0 50%,#003a8a 50% 75%,#c91129 75%); }
+footer .rejilla { grid-template-columns:repeat(auto-fit,minmax(14rem,1fr)); }
+footer h4 { color:#fff; margin:0 0 .5rem; }
+footer a { color:#fff; } footer p { margin:.25rem 0; font-size:.95rem; }
+footer .legal { border-top:1px solid #ffffff22; margin-top:1.4rem; padding-top:1rem; font-size:.82rem; }
+
+/* WhatsApp flotante */
+.wa { position:fixed; right:1rem; bottom:1rem; z-index:60; background:#1d9b57; color:#fff; text-decoration:none; font-weight:700;
+  padding:.8rem 1.1rem; border-radius:99px; box-shadow:0 6px 20px #0006; display:flex; gap:.5rem; align-items:center; }
+.wa:hover { filter:brightness(1.1); }
+.mapa { border:0; width:100%; height:22rem; border-radius:.8rem; }
+@media print { .sos, header.barra, .wa, footer, .burger { display:none !important; } }
+@media (max-width:700px) { .wa { padding:.8rem; font-size:0; } .wa::before { content:"💬"; font-size:1.5rem; } }
