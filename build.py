@@ -12,6 +12,8 @@ AQUI = Path(__file__).parent
 
 # ------------------------------------------------------------------ DATOS
 NOMBRE = "Cuerpo de Bomberos Voluntarios de Santa Rosa de Cabal"
+RAZON_SOCIAL = "Cuerpo de Bomberos Voluntarios del Municipio de Santa Rosa de Cabal, Risaralda"
+NIT = "900.870.449-1"
 MOVIL = "350 697 7228"            # llamada y WhatsApp
 FIJOS = ["365 7239", "365 7247"]
 CORREO = "cbvsantarosadec@gmail.com"
@@ -55,7 +57,7 @@ def pagina(archivo, titulo, cuerpo, descripcion):
 <main>{cuerpo}</main>
 <a class="wa" href="{WA}" target="_blank" rel="noopener">💬 WhatsApp</a>
 <footer><div class="wrap"><div class="rejilla">
-<div><h4>{NOMBRE}</h4><p>Valor · Abnegación · Disciplina</p><p>Personería jurídica N.º 055 del 17 de julio de 2015</p></div>
+<div><h4>{NOMBRE}</h4><p>Valor · Abnegación · Disciplina</p><p>{RAZON_SOCIAL}</p><p>NIT {NIT} · Entidad sin ánimo de lucro</p><p>Personería jurídica N.º 055 del 17 de julio de 2015</p></div>
 <div><h4>Contacto</h4><p>📞 <a href="{tel(MOVIL)}">{MOVIL}</a> (llamada y WhatsApp)</p><p>☎ {fijos}</p>
 <p>✉ <a href="mailto:{CORREO}">{CORREO}</a></p><p>📍 {DIRECCION}</p></div>
 <div><h4>Síguenos</h4><p><a href="{URL_FACEBOOK}" rel="noopener">Facebook</a></p><p><a href="{URL_INSTAGRAM}" rel="noopener">Instagram</a></p>
@@ -160,6 +162,7 @@ PAGINAS["quienes-somos.html"] = ("Quiénes somos", "Misión, visión y marco leg
 <section class="bloque"><div class="wrap"><div class="rejilla">
 <div class="tarjeta"><h3>🎯 Misión</h3><p>Salvar vidas y proteger los bienes y el ambiente de Santa Rosa de Cabal, atendiendo emergencias de incendio, rescate y materiales peligrosos con valor, abnegación y disciplina, y promoviendo la prevención en la comunidad.</p></div>
 <div class="tarjeta"><h3>🔭 Visión</h3><p>Ser una institución reconocida por su capacidad de respuesta, su transparencia y su cercanía con la comunidad, con personal formado y equipos adecuados.</p></div>
+<div class="tarjeta"><h3>🏛️ Datos de la organización</h3><p><b>{RAZON_SOCIAL}</b></p><p>NIT {NIT}</p><p>Entidad sin ánimo de lucro</p><p>📍 {DIRECCION}</p><p>Este es el sitio web oficial de la organización.</p></div>
 <div class="tarjeta"><h3>⚖️ Marco legal</h3><p>Personería jurídica N.º 055 del 17 de julio de 2015. Actuamos bajo la Ley 1575 de 2012 (Ley General de Bomberos de Colombia) y el Decreto 014 de 2015.</p></div></div>
 <p style="margin-top:1rem">{por_validar("La misión y la visión son un borrador; deben ser reemplazadas por el texto oficial del Cuerpo.")}</p></div></section>
 <section class="bloque alt"><div class="wrap"><h2>Nuestros valores</h2><div class="rejilla">
